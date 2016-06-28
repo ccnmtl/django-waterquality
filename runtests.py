@@ -1,4 +1,4 @@
-""" run tests for pagetimer
+""" run tests for waterquality
 
 $ virtualenv ve
 $ ./ve/bin/pip install Django==1.8
@@ -25,6 +25,8 @@ def main():
             'django.contrib.auth',
             'django.contrib.sessions',
             'django.contrib.contenttypes',
+            'django.contrib.staticfiles',
+            'googlecharts',
             'waterquality',
         ),
         TEST_RUNNER='django.test.runner.DiscoverRunner',
@@ -52,14 +54,16 @@ def main():
         # Django replaces this, but it still wants it. *shrugs*
         DATABASES={
             'default': {
-                'ENGINE': 'django.db.backends.sqlite3',
+                'ENGINE': 'django.contrib.gis.db.backends.spatialite',
                 'NAME': ':memory:',
                 'HOST': '',
                 'PORT': '',
                 'USER': '',
                 'PASSWORD': '',
+                'ATOMIC_REQUESTS': True,
             }
         },
+        MAX_DATA_COUNT=400,
     )
 
     django.setup()

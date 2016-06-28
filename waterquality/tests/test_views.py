@@ -1,3 +1,4 @@
+from django.core.urlresolvers import reverse
 from django.test import TestCase
 from django.test.client import Client
 from waterquality.models import Site, Location, Series, Row
@@ -9,11 +10,11 @@ class TestBoringPages(TestCase):
         self.c = Client()
 
     def test_index(self):
-        r = self.c.get("/waterquality/")
+        r = self.c.get(reverse("waterchemistry-index"))
         self.assertEqual(r.status_code, 200)
 
     def test_teaching(self):
-        r = self.c.get("/waterquality/teaching/")
+        r = self.c.get(reverse("waterchemistry-teaching"))
         self.assertEqual(r.status_code, 200)
 
 
@@ -35,26 +36,27 @@ class TestSeriesViews(TestCase):
             series=self.s, timestamp=datetime.now(), value=4.0)
 
     def test_browse(self):
-        r = self.c.get("/waterquality/browse/")
+        r = self.c.get(reverse("waterchemistry-browse"))
         self.assertEqual(r.status_code, 200)
 
     def test_series_all(self):
-        r = self.c.get("/waterquality/series/%d/all/" % self.s.id)
+        r = self.c.get(reverse("waterchemistry-series-all", args=[self.s.id]))
         self.assertEqual(r.status_code, 200)
 
     def test_series(self):
-        r = self.c.get("/waterquality/series/%d/" % self.s.id)
+        r = self.c.get(reverse("waterchemistry-series", args=[self.s.id]))
         self.assertEqual(r.status_code, 200)
 
     def test_series_with_endpoints(self):
         start = self.r1.timestamp
         end = self.r2.timestamp
-        r = self.c.get("/waterquality/series/%d/" % self.s.id,
+        r = self.c.get(reverse("waterchemistry-series", args=[self.s.id]),
                        dict(start=start, end=end))
         self.assertEqual(r.status_code, 200)
 
     def test_verify(self):
-        r = self.c.get("/waterquality/series/%d/verify/" % self.s.id)
+        r = self.c.get(reverse("waterchemistry-series-verify",
+                               args=[self.s.id]))
         self.assertEqual(r.status_code, 200)
 
 
@@ -77,26 +79,27 @@ class TestGraph(TestCase):
             series=self.s2, timestamp=datetime.now(), value=10.0)
 
     def test_simple(self):
-        r = self.c.get("/waterquality/graph/")
+        r = self.c.get(reverse("waterchemistry-graphing-tool"))
         self.assertEqual(r.status_code, 200)
 
     def test_with_endpoints(self):
         start = "2000-01-01"
         end = "2100-01-01"
-        r = self.c.get("/waterquality/graph/", dict(start=start, end=end))
+        r = self.c.get(reverse("waterchemistry-graphing-tool"),
+                       dict(start=start, end=end))
         self.assertEqual(r.status_code, 200)
 
     def test_invalid_endpoints(self):
-        r = self.c.get("/waterquality/graph/",
+        r = self.c.get(reverse("waterchemistry-graphing-tool"),
                        dict(start="bad start", end="bad end"))
         self.assertEqual(r.status_code, 200)
-        r = self.c.get("/waterquality/graph/",
+        r = self.c.get(reverse("waterchemistry-graphing-tool"),
                        dict(start="2000-01-01", end="bad end"))
         self.assertEqual(r.status_code, 200)
 
     def test_time_series(self):
         r = self.c.get(
-            "/waterquality/graph/",
+            reverse("waterchemistry-graphing-tool"),
             dict(
                 type='time-series',
                 series=self.s.id,
@@ -106,7 +109,7 @@ class TestGraph(TestCase):
 
     def test_scatter_plot(self):
         r = self.c.get(
-            "/waterquality/graph/",
+            reverse("waterchemistry-graphing-tool"),
             dict(
                 type='scatter-plot',
                 independent=self.s.id,
@@ -117,7 +120,7 @@ class TestGraph(TestCase):
 
     def test_scatter_plot_skip_zeroes(self):
         r = self.c.get(
-            "/waterquality/graph/",
+            reverse("waterchemistry-graphing-tool"),
             dict(
                 type='scatter-plot',
                 skip_zeroes="1",
@@ -129,7 +132,7 @@ class TestGraph(TestCase):
 
     def test_box_plot(self):
         r = self.c.get(
-            "/waterquality/graph/",
+            reverse("waterchemistry-graphing-tool"),
             dict(
                 type='box-plot',
                 series=self.s.id,

@@ -1,0 +1,292 @@
+#contentcontainer { padding: 20px; }
+
+ul.breadcrumbs li  a
+{
+padding: 5px 10px 10px 10px; 
+border-top: 5px solid #dcd3c2;
+}
+
+ul.breadcrumbs li a.active 
+{
+background-color: #fff; 
+padding: 5px 10px 10px 10px; 
+border-top: 5px solid #dcd3c2;
+}
+
+#icontext, form
+{
+	font-family: "lucida grande";
+	font-size: 10px;
+	color: #666;
+}
+
+#icontext
+{
+	text-align: right;
+	padding-top: 5px;
+}
+
+fieldset
+{
+	border: 1px solid #B0B0B0;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 5px;
+	margin-top: 10px;
+}
+
+legend
+{
+	font-weight: bold;
+	font-size: 14px;
+	background-color: #fff;
+	border: 1px solid #B0B0B0;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 5px;
+	padding: 10px;
+	color: #000;
+}
+
+.form-element
+{
+	border: 1px solid #B0B0B0;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 5px;
+	float: left;
+	margin: 5px;
+	padding-bottom: 5px;
+
+}
+
+.hidden-form
+{
+	visibility: hidden;
+}
+
+.form-row
+{
+	padding: 5px;
+	clear: both;
+}
+
+.form-label
+{
+	float: left;
+	text-align: right;
+	margin-right: 5px;
+}
+
+label
+{
+	padding-top: 4px;
+	display: block;
+}
+
+.form-input { float: left; }
+.selected { color: #0099ff; }
+input[type="text"] { width: 7em; }
+select { }
+
+#graphit
+{
+	background-color: #0099ff;
+	color: #fff;
+}
+
+#datatable
+{
+	width: 100%;
+	border: 1px solid #ccc;
+	border-collapse: collapse;
+}
+
+#datatable th, #datatable td
+{
+	padding: 5px;
+	border: 1px solid #ccc;
+	border-collapse: collapse;
+}
+
+#datatable th
+{
+	text-align: left;
+	background-color: #eee;
+}
+
+#datatable td.seriesname { }
+#masthead a, #breadcrumbs a { text-decoration: none !important; }
+#breadcrumbs a:hover { text-decoration: underline !important; }
+a { text-decoration: underline !important; }
+a:hover { text-decoration: none !important; }
+
+p.warning
+{
+	font-family: "lucida grande";
+	font-size: 12px;
+	color: #000;
+	background-color: #fcc;
+	padding: 10px;
+}
+
+p.ttest
+{
+	font-family: "lucida grande";
+	font-size: 12px;
+	color: #000;
+	background-color: #ffc;
+	padding: 10px;
+}
+
+.funder_logo 
+{
+	display: block;
+	margin: 50px 0 0 0;
+	font-size: 12px;
+}
+
+.funder_logo span
+{
+	display: block;
+	float: left;
+	padding: 5px 10px 5px 0;
+	margin: 0;
+}
+
+#footer
+{
+	background-color: #1F2A1E;
+	color: #ffffff;
+	text-align: center;
+	font-size: .7em;
+	margin: 30px 0 0 0;
+	padding: 0;
+	border: 0;
+}
+
+ul#standard-elements
+{
+	list-style: none;
+	margin: 0;
+	padding: 3px 0;
+}
+
+ul#standard-elements li
+{
+	display: inline;
+	padding: 0 5px;
+}
+
+ul#standard-elements li a
+{
+	color: #ffffff;
+	display: inline;
+	text-decoration: none !important;
+}
+
+ul#standard-elements li a:hover
+{
+	text-decoration: underline !important;
+}
+
+
+/*OLD*/
+
+/*
+table.graphtable th, table.graphtable td
+{
+	font-size: 10px;
+	padding: 4px;
+	vertical-align: top;
+}
+
+.activity { padding: 20px; }
+h1 { border-bottom: 1px solid #ccc; }
+
+#facebox .content
+{
+	width: 800px !important;
+	display: block !important;
+	overflow: auto;
+	height: 600px;
+	padding: 40px;
+	border-radius: 0 !important;
+}
+
+#facebox .close
+{
+	right: 20px !important;
+	top: 10px !important;
+	border: 1px solid #ccc;
+}
+
+li { margin-top: 10px; }
+
+p.top
+{
+	margin-bottom: 50px;
+	border-top: 1px solid #ccc;
+	padding-top: 5px;
+}
+
+p.reference { font-size: 11px; }
+ul.anchorlinks { margin-bottom: 50px; }
+
+#graphingtool
+{
+	border: 1px solid #ccc;
+	background-color: #eee;
+	margin: 20px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+}
+
+#graphingtool-inner { padding: 0px 20px 20px 20px; }
+
+#activitiescontainer
+{
+	border: 1px solid #ccc;
+	margin: 20px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+}
+
+#graphingtool-inner { padding: 0px 20px 20px 20px; }
+.content-nav, .content-nav a { font-size: 12px; }
+
+table.graphtable th
+{
+	color: #435142;
+	width: 200px;
+	text-align: left;
+}
+
+
+table.graphtable th, table.graphtable td
+{
+	font-size: 10px;
+	padding: 4px;
+}
+
+#masthead a
+{
+	color: #fff;
+	text-decoration: none !important;
+}
+
+#error-message {
+  border: #f00 solid 2px;
+	width: 500px;
+	padding: 20px;
+	margin: 10px;
+}
+
+#error-message h2 {
+  color: #f00;
+}
+*/
+
+/*OLD*/

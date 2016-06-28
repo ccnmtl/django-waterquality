@@ -1,0 +1,35 @@
+{% extends 'waterquality/base_waterquality.html' %}
+{% load charts %}
+{% block js %}
+   {{ block.super }}
+	{% if not show_graph %}
+	<script type="text/javascript">
+	$(document).ready(function() {
+		$('a[rel*=facebox]').facebox();   
+	$(document).bind('reveal.facebox', function() {
+	        $('#facebox a[rel*=facebox]').facebox();
+	});
+
+	})
+	</script>
+	{% endif %}
+{% endblock %}
+
+{% block content %}
+	<div id="contentcontainer">
+	  <p>
+		<input type=button onClick="parent.location='javascript:history.go(-1)'" value='&laquo; Back to Charts'>		
+	  </p>
+	<table>
+	
+	{% for row in series.row_set.all %}
+	<tr>
+	<td>{{row.timestamp}}</td>
+	<td>{{row.value}}</td>
+	</tr>
+	{% endfor %}
+	
+	</table>
+
+</div>
+{% endblock %}

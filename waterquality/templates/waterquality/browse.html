@@ -1,0 +1,76 @@
+{% extends 'waterquality/base_waterquality.html' %}
+{% load cycle from future %}
+
+{% block js %}
+   {{ block.super }}
+    <!--original style version here was 1.8.11  -->
+	<link rel="stylesheet" href="{{STATIC_URL}}js/libraries/jquery-ui-themes-1.8.12/themes/base/jquery-ui.css" type="text/css" media="all" /> 
+
+	{% if not show_graph %}
+	<script type="text/javascript">
+	$(document).ready(function() {
+		$('a[rel*=facebox]').facebox();   
+	$(document).bind('reveal.facebox', function() {
+	        $('#facebox a[rel*=facebox]').facebox();
+	});
+
+	})
+	</script>
+	{% endif %}
+
+{% endblock %}
+
+{% block breadcrumbs %}
+	<ul class="breadcrumbs">
+	<li><a href="/waterchemistry/">Home</a></li>
+	<li><a href="/waterchemistry/graph/">Graphing Tool</a></li>
+	<li><a href="/waterchemistry/browse/" class="active">Data Browser</a></li>
+	<li><a id="teachlink" href="/waterchemistry/teaching/">Teaching Resources</a></li>
+	</ul>
+{% endblock %}
+
+
+{% block content %}
+
+	<div id="contentcontainer">
+
+	<h3>Data Browser</h3>
+	
+	<p>
+	By clicking on each link below, you will find additional information on the various data sets used in the graphing tool. You can also view each data entry that makes up the set.
+	</p>
+	
+		<table id="datatable">
+		
+		<tr>
+		  <th>Data Sets</th>
+		  <th>Units</th>
+		  <th>Count</th>
+		  <th colspan="2">Range</th>
+		  <th>Min</th>
+		  <th>Max</th>
+		  <th>Mean</th>
+		  <th>Std. Dev.</th>
+		</tr>
+		
+		{% for series in series %}
+		<tr class="{% cycle 'even' 'odd' %}">
+		<td class="seriesname">{{series.location.site.name}}/{{series.location.name}}/<a href="/waterchemistry/series/{{series.id}}/">{{series.name}}</a></td>
+		<td>{{series.units}}</td>
+		<td>{{series.count}}</td>
+		<td>{{series.start.timestamp}}</td><td>{{series.end.timestamp}}</td>
+		<td>{{series.min|floatformat}}</td>
+		<td>{{series.max|floatformat}}</td>
+		<td>{{series.mean|floatformat}}</td>
+		<td>{{series.stddev|floatformat}}</td>
+		</tr>
+		{% endfor %}
+		
+		</table>
+	<p style="font-size: 12px;">
+	The Harlem River dissolved oxygen data was collected by Frederick Douglass Academy student Melissa Jimenez while participating in the Urban Ecology Research Program.
+	</p>
+	
+	</div>
+	
+{% endblock %}

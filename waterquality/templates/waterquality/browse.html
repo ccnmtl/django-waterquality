@@ -22,10 +22,10 @@
 
 {% block breadcrumbs %}
 	<ul class="breadcrumbs">
-	<li><a href="/waterchemistry/">Home</a></li>
-	<li><a href="/waterchemistry/graph/">Graphing Tool</a></li>
-	<li><a href="/waterchemistry/browse/" class="active">Data Browser</a></li>
-	<li><a id="teachlink" href="/waterchemistry/teaching/">Teaching Resources</a></li>
+	<li><a href="{% url 'waterchemistry-index' %}">Home</a></li>
+	<li><a href="{% url 'waterchemistry-graphing-tool' %}">Graphing Tool</a></li>
+	<li><a href="{% url 'waterchemistry-browse' %}" class="active">Data Browser</a></li>
+	<li><a id="teachlink" href="{% url 'waterchemistry-teaching' %}">Teaching Resources</a></li>
 	</ul>
 {% endblock %}
 
@@ -55,7 +55,7 @@
 		
 		{% for series in series %}
 		<tr class="{% cycle 'even' 'odd' %}">
-		<td class="seriesname">{{series.location.site.name}}/{{series.location.name}}/<a href="/waterchemistry/series/{{series.id}}/">{{series.name}}</a></td>
+		<td class="seriesname">{{series.location.site.name}}/{{series.location.name}}/<a href="{% url 'waterchemistry-series' series.id %}">{{series.name}}</a></td>
 		<td>{{series.units}}</td>
 		<td>{{series.count}}</td>
 		<td>{{series.start.timestamp}}</td><td>{{series.end.timestamp}}</td>

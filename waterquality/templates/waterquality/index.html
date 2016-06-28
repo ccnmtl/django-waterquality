@@ -25,10 +25,10 @@ $(document).ready(function() {
 
 {% block breadcrumbs %}
 	<ul class="breadcrumbs">
-	<li><a href="/waterchemistry/" class="active">Home</a></li>
-	<li><a href="/waterchemistry/graph/">Graphing Tool</a></li>
-	<li><a href="/waterchemistry/browse/">Data Browser</a></li>
-	<li><a id="teachlink" href="/waterchemistry/teaching/">Teaching Resources</a></li>
+	<li><a href="{% url 'waterchemistry-index' %}" class="active">Home</a></li>
+	<li><a href="{% url 'waterchemistry-graphing-tool' %}">Graphing Tool</a></li>
+	<li><a href="{% url 'waterchemistry-browse' %}">Data Browser</a></li>
+	<li><a id="teachlink" href="{% url 'waterchemistry-teaching' %}">Teaching Resources</a></li>
 	</ul>
 {% endblock %}
 
@@ -53,11 +53,11 @@ $(document).ready(function() {
 	
 		<p>Black Rock Forest Consortium and the Columbia Center for New Media Teaching and Learning have created a Virtual Forest Partnership with New York City Schools thanks to a generous grant from the Toyota USA Foundation. Visit this website often to learn about field work at Black Rock Forest, access others' data and research findings, and complete assignments offered by the schools in the Partnership.</p>
 		
-		<p><b>Educators:</b> Download the <a href="/waterchemistry/teaching/">Teacher Guide</a> to the Water and the Living Environment curriculum.</p>
+		<p><b>Educators:</b> Download the <a href="{% url 'waterchemistry-teaching' %}">Teacher Guide</a> to the Water and the Living Environment curriculum.</p>
 		
-		<p><b>Students:</b> Whether you have been to Black Rock Forest before or have yet to travel to Cornwall, take the next step in your journey to becoming a water quality expert here. Download the <a href="/waterchemistry/teaching/">Student Guide</a> and the <a href="/waterchemistry/teaching/">Student Journal</a> to start the Water and the Living Environment's curriculum.</p>
+		<p><b>Students:</b> Whether you have been to Black Rock Forest before or have yet to travel to Cornwall, take the next step in your journey to becoming a water quality expert here. Download the <a href="{% url 'waterchemistry-teaching' %}">Student Guide</a> and the <a href="{% url 'waterchemistry-teaching' %}">Student Journal</a> to start the Water and the Living Environment's curriculum.</p>
 		
-		<p>You will also be using the <a href="/waterchemistry/graph/">Graphing Tool</a> throughout the curriculum.</p>
+		<p>You will also be using the <a href="{% url 'waterchemistry-graphing-tool' %}">Graphing Tool</a> throughout the curriculum.</p>
 	
 	</div>
 	

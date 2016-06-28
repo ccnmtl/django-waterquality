@@ -33,10 +33,10 @@ $(document).ready(function() {
 
 {% block breadcrumbs %}
 	<ul class="breadcrumbs">
-	<li><a href="/waterchemistry/">Home</a></li>
-	<li><a href="/waterchemistry/graph/">Graphing Tool</a></li>
-	<li><a href="/waterchemistry/browse/">Data Browser</a></li>
-	<li><a href="/waterchemistry/teaching/"class="active">Teaching Resources</a></li>
+	<li><a href="{% url 'waterchemistry-index' %}">Home</a></li>
+	<li><a href="{% url 'waterchemistry-graphing-tool' %}">Graphing Tool</a></li>
+	<li><a href="{% url 'waterchemistry-browse' %}">Data Browser</a></li>
+	<li><a href="{% url 'waterchemistry-teaching' %}" class="active">Teaching Resources</a></li>
 	</ul>
 {% endblock %}
 

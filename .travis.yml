@@ -21,10 +21,10 @@ after_success:
 - coveralls
 deploy:
   provider: pypi
+  distributions: "sdist bdist_wheel"
   user: ctlpypi
   password:
     secure: Pk+foVbs9XT1sNBqonwbCzOkzObjRn6eP9fboOn5S1LNaL7imloHpduib1wp3ik0Dsz4YwQbtyTr/McZF5JyrDotItzo74QC5JhF/Ml7kuT+8V2FSy64PjgZs352qDK4yzIgTl9oNDv3KMWxib2G5cSnsYa9P4bu4TyUpyT/qxmQAyO6V+MOGQZFyYPewkHXsKAeN3HrAQkMgvjZ0R8hXiy2++6O/eGwh9N9L4gWAN86BIetZtH2DmaxbFJyIWIcCbsVkKG6R8WtcYia7jO9jNT/NxTNCH/5dNYFpJG7t2wi0Ok1dLFhbUmSGL2clM28dsXX90sI0OEYnYT9jOcCI7eO/3ioveuq6v/IPAlXla+WHpQ+YBS/Wt2YEVeySkqRpA0REAJnqiCgTkGMK/j83qFUaF6t1fmvrtJnA3e8tlLjO4mWSzF2fB9S43sSHUTuqVYf3Lrd5VWNqFGophkqVuPZAzZAbVlvZ/7AQ/6x+cdd2DrLA0LSP9sV3an+xTX7rtZKFlBXR+YwDk0huL97yVWtuoSNfkRxi7rQ5ScHY+0B3SbnZpNE4Ml+1M4NN8oJLLRH5+h5/H5vaARoAiRXjJwRdUX9lszghp+ebBnt75RkTJWwcUCT9Qq3PPgV7o22bjhocTCiUaaGTdXD6sKTtp7vj5hmzT4bwojrP3tI560=
   on:
     tags: true
-    distributions: sdist bdist_wheel
     repo: ccnmtl/django-waterquality
